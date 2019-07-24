@@ -17,6 +17,7 @@ p{
 	border: none;
     border-radius: 2px;
     color: #999999;
+	min-height: 43px;
 }
 
 .input-group-addon{
@@ -77,8 +78,7 @@ p{
 }
 
 .contenedor-busqueda{
-	background-color: #FFFFFF;
-	border-radius: 2px;
+	margin: 5% 30%;
 }
 
 .contenedor-producto{
@@ -87,8 +87,52 @@ p{
 	cursor: pointer;
 }
 
-.linea-negra{
-	border-bottom: 1px solid #222;
+.linea-gris{
+	border-bottom: 1px solid #777777;
 	margin: 0 16px;
+}
+
+.button-enviar{
+	width: 100%;
+	padding: 10px;
+	background-color: #222;
+	color: #fff;
+}
+
+.cursor-pointer{
+	pointer-events: all;
+	cursor: pointer;
+	color: blue;
+}
+
+.boton-enviar{
+	width: 100%;
+	padding: 10px;
+	background-color: #222;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.btn-like{
+	background-color: cadetblue;
+	color: #fff;
+	border: 0;
+	padding: 5px 10px;
+	border-radius: 3px;
+	width: 100%;
+}
+
+.btn-unlike{
+	background-color: red;
+	color: #fff;
+	border: 0;
+	padding: 5px 10px;
+	border-radius: 3px;
+	width: 100%;
+}
+
+.navbar-amarilla{
+	padding: 10px;
+	background-color: #fff159;
 }
 

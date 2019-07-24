@@ -1,19 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import SearchLocation from './SearchLocation';
-import LocationResults from './Location-Results';
-
 import { Router, Route } from 'react-router-dom'
 import { createBrowserHistory } from 'history';
+import SearchLocation from './SearchLocation';
+import LocationResults from './Location-Results';
+import FavoritesResults from './Favorites-Results';
+
+
 import * as serviceWorker from './serviceWorker';
 
 
 const history = createBrowserHistory();
 ReactDOM.render(
     <Router history={history}>
+        <Route exact path="/favorites" component={FavoritesResults} />
         <Route exact path="/" component={SearchLocation} />
-        <Route exact path="/:siteId/:methodPayment/:latitud/:longitud/:filter?" component={LocationResults} />
+        <Route exact path="/:siteId/:methodPayment/:latitud/:longitud/(limit)?/:limit?/(offset)?/:offset?/(filter)?/:filter?"  component={LocationResults} />
     </Router>,
     document.getElementById('root')
 );

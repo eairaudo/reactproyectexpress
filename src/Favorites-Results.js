@@ -1,36 +1,27 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
-import Agency from "./Agency";
-import SearchLocation from "./SearchLocation";
-
+import Favorites from "./Favorites";
 
 class LocationResults extends Component {
 
     constructor(props){
         super(props)
         this.state = {
-            results: []
+            results: {}
         };
     }
 
     componentDidMount() {
-        const siteId = this.props.match.params.siteId
-        const latitud = this.props.match.params.latitud
-        const longitud = this.props.match.params.longitud
-        const methodPayment = this.props.match.params.methodPayment
-        const limit = this.props.match.params.limit
-        const offset = this.props.match.params.offset
-        const filter = this.props.match.params.filter
-        Axios.get('http://localhost:8081/sites/'+siteId+'/payment_methods/'+methodPayment+'/agencies?latitud='+latitud+'&longitud='+longitud+'&limit='+limit+'&offset='+offset+'&orderBy='+filter)
+        Axios.get('http://localhost:8081/favorites/list')
             .then(response => this.setState({results: response.data}))
             .catch(error => alert(error))
         console.log(this.state.results)
     }
 
-    LocationList(){
+    FavoritesList(){
         console.log(this.state.results)
         return this.state.results.map(function(object, i){
-            return <Agency obj={object} key={i} />;
+            return <Favorites obj={object} key={i} />;
         });
     }
 
@@ -40,8 +31,6 @@ class LocationResults extends Component {
         console.log(this.state.results)
         return (
             <div>
-                <SearchLocation/>
-                <div className="block-24"></div>
                 <div className="row">
                     <div className="col-xs-2">
                         <p className="txt-700">Nombre</p>
@@ -69,7 +58,7 @@ class LocationResults extends Component {
                     </div>
                 </div>
                 <div className="block-24"></div>
-                {this.LocationList()}
+                {this.FavoritesList()}
             </div>
         )
     }
