@@ -17,7 +17,7 @@ p{
 	border: none;
     border-radius: 2px;
     color: #999999;
-	min-height: 43px;
+	height: 43px;
 }
 
 .input-group-addon{
@@ -134,5 +134,9 @@ p{
 .navbar-amarilla{
 	padding: 10px;
 	background-color: #fff159;
+}
+
+.btn-listado{
+	float: right;
 }
 

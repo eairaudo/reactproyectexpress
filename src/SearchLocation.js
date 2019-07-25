@@ -7,6 +7,7 @@ class SearchLocation extends Component {
         super(props)
         this.state = {
             redirectResults : false,
+            redirectFavorites : false,
             valueInputOne : '',
             valueInputTwo : '',
             valueInputSite: '',
@@ -29,6 +30,13 @@ class SearchLocation extends Component {
 
         this.setState(() => ({
             redirectResults : true
+        }))
+    }
+
+    handleClickFavorites = () => {
+
+        this.setState(() => ({
+            redirectFavorites : true
         }))
     }
 
@@ -83,6 +91,10 @@ class SearchLocation extends Component {
             return (<Redirect to ={'/'+this.state.valueInputSite+'/'+this.state.valueInputMethodPayment+'/'+this.state.valueInputOne+'/'+this.state.valueInputTwo+'/'+this.state.valueInputLimit+'/'+this.state.valueInputOffset+'/'+this.state.valueSelectFilter}/>)
         }
 
+        if(this.state.redirectFavorites === true){
+            return (<Redirect to ={'/favorites'}/>)
+        }
+
         console.log(this.state.valueSelectFilter)
 
         return (
@@ -117,11 +129,16 @@ class SearchLocation extends Component {
                                                <option value="distance">distance</option>
                                            </select>
                                        </div>
-                                   </div>
+                                    </div>
                                    <div className="col-xs-2">
-                                       <button className="boton-enviar" onClick={this.handleClick}>Enviar</button>
+                                       <button className="boton-enviar" onClick={this.handleClick}>Buscar</button>
                                    </div>
                                </div>
+                            <div className="row">
+                                <div className="col-xs-12">
+                                    <h4 className="cursor-pointer btn-listado" onClick={this.handleClickFavorites}>Ver listado de favoritos</h4>
+                                </div>
+                            </div>
                         </div>
                     </nav>
                 </div>

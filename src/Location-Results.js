@@ -34,13 +34,13 @@ class LocationResults extends Component {
         });
     }
 
-
     render() {
 
-        console.log(this.state.results)
         return (
             <div>
                 <SearchLocation/>
+                <div className="block-24"></div>
+                <div className="block-24"></div>
                 <div className="block-24"></div>
                 <div className="row">
                     <div className="col-xs-2">
