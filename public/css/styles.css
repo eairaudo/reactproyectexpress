@@ -1,6 +1,5 @@
 body{
   font-family: 'Roboto', sans-serif;
-  background-color: #EEEEEE;
 }
 
 p{
@@ -139,4 +138,22 @@ p{
 .btn-listado{
 	float: right;
 }
+
+.contenedor-agencia-item{
+	display: flex;
+	align-items: center;
+	background-color: #f2f2f2;
+	padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.encabezado-agencia{
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    padding: 10px;
+    color: #fff;
+}
+
+
 

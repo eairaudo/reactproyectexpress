@@ -88,7 +88,7 @@ class SearchLocation extends Component {
 
     render() {
         if(this.state.redirectResults === true){
-            return (<Redirect to ={'/'+this.state.valueInputSite+'/'+this.state.valueInputMethodPayment+'/'+this.state.valueInputOne+'/'+this.state.valueInputTwo+'/'+this.state.valueInputLimit+'/'+this.state.valueInputOffset+'/'+this.state.valueSelectFilter}/>)
+            return (<Redirect to ={{pathname:'/results' , state:{ siteId :this.state.valueInputSite, methodPayment :this.state.valueInputMethodPayment,latitud :this.state.valueInputOne,longitud :this.state.valueInputTwo,limit: this.state.valueInputLimit, offset: this.state.valueInputOffset, filter : this.state.valueSelectFilter}}} />)
         }
 
         if(this.state.redirectFavorites === true){
@@ -109,10 +109,10 @@ class SearchLocation extends Component {
                                        <input type="text" onChange = {this.onInputChangeMethodPayment} value = {this.state.valueInputMethodPayment} className="form-control" placeholder="M. Pago" aria-describedby="basic-addon2"/>
                                    </div>
                                    <div className="col-xs-2">
-                                       <input type="text" onChange = {this.onInputChangeOne} value = {this.state.valueInputOne} className="form-control" placeholder="longitud" aria-describedby="basic-addon2"/>
+                                       <input type="text" onChange = {this.onInputChangeOne} value = {this.state.valueInputOne} className="form-control" placeholder="latitud" aria-describedby="basic-addon2"/>
                                    </div>
                                    <div className="col-xs-2">
-                                       <input type="text" onChange = {this.onInputChangeTwo} value = {this.state.valueInputTwo} className="form-control" placeholder="latitud" aria-describedby="basic-addon2"/>
+                                       <input type="text" onChange = {this.onInputChangeTwo} value = {this.state.valueInputTwo} className="form-control" placeholder="longitud" aria-describedby="basic-addon2"/>
                                    </div>
                                    <div className="col-xs-1">
                                        <input type="text" onChange = {this.onInputChangeLimit} value = {this.state.valueInputLimit} className="form-control" placeholder="limit" aria-describedby="basic-addon2"/>

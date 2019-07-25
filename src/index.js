@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { Router, Route } from 'react-router-dom'
+import { Router, Route} from 'react-router-dom'
 import { createBrowserHistory } from 'history';
 import SearchLocation from './SearchLocation';
 import LocationResults from './Location-Results';
@@ -15,8 +15,9 @@ const history = createBrowserHistory();
 ReactDOM.render(
     <Router history={history}>
         <Route exact path="/favorites" component={FavoritesResults} />
+
         <Route exact path="/" component={SearchLocation} />
-        <Route exact path="/:siteId/:methodPayment/:latitud/:longitud/(limit)?/:limit?/(offset)?/:offset?/(filter)?/:filter?"  component={LocationResults} />
+        <Route exact path="/results"  component={LocationResults} />
     </Router>,
     document.getElementById('root')
 );

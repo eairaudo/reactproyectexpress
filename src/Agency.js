@@ -21,6 +21,15 @@ class Agency extends Component {
             .catch(error => alert(error.response.statusText))
     }
 
+    handleClickUnLike = () => {
+
+        Axios.get('http://localhost:8081/delete/' + this.props.obj.site_id + '/payment_methods/' + this.props.obj.payment_method_id + '/agencies/' + this.props.obj.id)
+            .then(response =>this.setState({results: response.data},function () {
+                alert(response.statusText)
+            }))
+            .catch(error => alert(error.response.statusText))
+    }
+
 
   render() {
 
@@ -28,12 +37,12 @@ class Agency extends Component {
     return (
       <div>
         <div>
-          <div className="row" >
+          <div className="row contenedor-agencia-item" >
               <div className="col-xs-2">
-                  <p className="precio">{this.props.obj.description}</p>
+                  <p>{this.props.obj.description}</p>
               </div>
               <div className="col-xs-1">
-                  <p className="texto-producto">{this.props.obj.payment_method_id}</p>
+                  <p>{this.props.obj.payment_method_id}</p>
               </div>
               <div className="col-xs-1">
                   <p>{this.props.obj.agency_code}</p>
@@ -52,17 +61,17 @@ class Agency extends Component {
               </div>
               <div className="col-xs-1">
                   <button className="btn-like" id={this.props.obj.id} onClick={this.handleClickLike} type="button" data-toggle="modal" data-target="#myModal">
-                      Like
+                      <i className="fa fa-thumbs-up"></i>
                   </button>
+
               </div>
               <div className="col-xs-1">
-                  <button className="btn-unlike" id={this.props.obj.id} type="button" data-toggle="modal" data-target="#myModal">
-                      UnLike
+                  <button className="btn-unlike" id={this.props.obj.id} onClick={this.handleClickUnLike} type="button" data-toggle="modal" data-target="#myModal">
+                      <i className="fa fa-thumbs-down"></i>
                   </button>
               </div>
           </div>
       </div>
-          <div className="block-24"></div>
       </div>
     );
   }

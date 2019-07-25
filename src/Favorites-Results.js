@@ -45,7 +45,7 @@ class LocationResults extends Component {
                     </div>
                 </div>
                 <div className="block-24"></div>
-                <div className="row">
+                <div className="row encabezado-agencia">
                     <div className="col-xs-2">
                         <p className="txt-700">Nombre</p>
                     </div>
@@ -61,14 +61,13 @@ class LocationResults extends Component {
                     <div className="col-xs-2">
                         <p className="txt-700">Direccion</p>
                     </div>
-                    <div className="col-xs-3">
+                    <div className="col-xs-2">
                         <p className="txt-700">Location</p>
                     </div>
                     <div className="col-xs-2">
                         <p className="txt-700"></p>
                     </div>
                 </div>
-                <div className="block-24"></div>
                 {this.FavoritesList()}
                 {this.ErrorShow()}
             </div>

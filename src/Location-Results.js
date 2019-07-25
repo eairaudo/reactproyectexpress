@@ -14,13 +14,16 @@ class LocationResults extends Component {
     }
 
     componentDidMount() {
-        const siteId = this.props.match.params.siteId
-        const latitud = this.props.match.params.latitud
-        const longitud = this.props.match.params.longitud
-        const methodPayment = this.props.match.params.methodPayment
-        const limit = this.props.match.params.limit
-        const offset = this.props.match.params.offset
-        const filter = this.props.match.params.filter
+        const siteId = this.props.location.state.siteId
+        const latitud = this.props.location.state.latitud
+        const longitud = this.props.location.state.longitud
+        const methodPayment = this.props.location.state.methodPayment
+        const limit =   this.props.location.state.limit
+        const offset = this.props.location.state.offset
+        const filter = this.props.location.state.filter
+
+        console.log(siteId, latitud,longitud,methodPayment,limit, offset, filter)
+
         Axios.get('http://localhost:8081/sites/'+siteId+'/payment_methods/'+methodPayment+'/agencies?latitud='+latitud+'&longitud='+longitud+'&limit='+limit+'&offset='+offset+'&orderBy='+filter)
             .then(response => this.setState({results: response.data}))
             .catch(error => alert(error))
@@ -42,7 +45,7 @@ class LocationResults extends Component {
                 <div className="block-24"></div>
                 <div className="block-24"></div>
                 <div className="block-24"></div>
-                <div className="row">
+                <div className="row encabezado-agencia">
                     <div className="col-xs-2">
                         <p className="txt-700">Nombre</p>
                     </div>
@@ -68,7 +71,6 @@ class LocationResults extends Component {
                         <p className="txt-700"></p>
                     </div>
                 </div>
-                <div className="block-24"></div>
                 {this.LocationList()}
             </div>
         )
