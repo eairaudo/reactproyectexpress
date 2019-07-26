@@ -17,6 +17,7 @@ class LocationResults extends Component {
         const siteId = this.props.location.state.siteId
         const latitud = this.props.location.state.latitud
         const longitud = this.props.location.state.longitud
+        const radio = this.props.location.state.radio
         const methodPayment = this.props.location.state.methodPayment
         const limit =   this.props.location.state.limit
         const offset = this.props.location.state.offset
@@ -24,7 +25,7 @@ class LocationResults extends Component {
 
         console.log(siteId, latitud,longitud,methodPayment,limit, offset, filter)
 
-        Axios.get('http://localhost:8081/sites/'+siteId+'/payment_methods/'+methodPayment+'/agencies?latitud='+latitud+'&longitud='+longitud+'&limit='+limit+'&offset='+offset+'&orderBy='+filter)
+        Axios.get('http://localhost:8081/sites/'+siteId+'/payment_methods/'+methodPayment+'/agencies?latitud='+latitud+'&longitud='+longitud+'&radio='+radio+'&limit='+limit+'&offset='+offset+'&orderBy='+filter)
             .then(response => this.setState({results: response.data}))
             .catch(error => alert(error))
         console.log(this.state.results)

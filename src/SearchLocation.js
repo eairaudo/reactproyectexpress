@@ -14,7 +14,8 @@ class SearchLocation extends Component {
             valueInputMethodPayment:'',
             valueSelectFilter:'',
             valueInputLimit:'',
-            valueInputOffset:''
+            valueInputOffset:'',
+            valueInputRadio: ''
 
         };
         this.onInputChangeOne = this.onInputChangeOne.bind(this);
@@ -23,6 +24,8 @@ class SearchLocation extends Component {
         this.onInputChangeMethodPayment = this.onInputChangeMethodPayment.bind(this);
         this.onInputChangeLimit = this.onInputChangeLimit.bind(this);
         this.onInputChangeOffset = this.onInputChangeOffset.bind(this);
+        this.onInputChangeRadio = this.onInputChangeRadio.bind(this);
+
 
     }
 
@@ -80,6 +83,14 @@ class SearchLocation extends Component {
         })
     }
 
+    onInputChangeRadio (e) {
+
+        this.setState({
+            valueInputRadio: e.target.value
+        })
+    }
+
+
     handleChangeSelect = (e) => {
         this.setState({
             valueSelectFilter: e.target.value
@@ -88,7 +99,7 @@ class SearchLocation extends Component {
 
     render() {
         if(this.state.redirectResults === true){
-            return (<Redirect to ={{pathname:'/results' , state:{ siteId :this.state.valueInputSite, methodPayment :this.state.valueInputMethodPayment,latitud :this.state.valueInputOne,longitud :this.state.valueInputTwo,limit: this.state.valueInputLimit, offset: this.state.valueInputOffset, filter : this.state.valueSelectFilter}}} />)
+            return (<Redirect to ={{pathname:'/results' , state:{ siteId :this.state.valueInputSite, methodPayment :this.state.valueInputMethodPayment,latitud :this.state.valueInputOne,longitud :this.state.valueInputTwo,radio: this.state.valueInputRadio,limit: this.state.valueInputLimit, offset: this.state.valueInputOffset, filter : this.state.valueSelectFilter}}} />)
         }
 
         if(this.state.redirectFavorites === true){
@@ -114,13 +125,16 @@ class SearchLocation extends Component {
                                    <div className="col-xs-2">
                                        <input type="text" onChange = {this.onInputChangeTwo} value = {this.state.valueInputTwo} className="form-control" placeholder="longitud" aria-describedby="basic-addon2"/>
                                    </div>
+                                    <div className="col-xs-1">
+                                   <input type="text" onChange = {this.onInputChangeRadio} value = {this.state.valueInputRadio} className="form-control" placeholder="radio" aria-describedby="basic-addon2"/>
+                                    </div>
                                    <div className="col-xs-1">
                                        <input type="text" onChange = {this.onInputChangeLimit} value = {this.state.valueInputLimit} className="form-control" placeholder="limit" aria-describedby="basic-addon2"/>
                                    </div>
                                    <div className="col-xs-1">
                                        <input type="text" onChange = {this.onInputChangeOffset} value = {this.state.valueInputOffset} className="form-control" placeholder="offset" aria-describedby="basic-addon2"/>
                                    </div>
-                                   <div className="col-xs-2">
+                                   <div className="col-xs-1">
                                        <div className="form-group">
                                            <select className="form-control" id="sel1" onChange={this.handleChangeSelect}>
                                                <option value="">Ninguno</option>
